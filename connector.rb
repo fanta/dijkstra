@@ -5,8 +5,12 @@ class Connector
     @nodes = []
   end
 
-  def connecto_to_node(node)
+  def connect_to_node(node)
     raise 'Only two nodes per connector are allowed' if @nodes.length == 2
     @nodes << node
+  end
+
+  def complete_nodes?
+    @nodes.length == 2
   end
 end

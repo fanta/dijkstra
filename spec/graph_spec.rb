@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Graph do
   let(:graph) { Graph.new }
-  let(:connector) { Connector.new }
+  let(:connector) { Connector.new(distance: 5) }
   let(:node) { Node.new }
   let(:second_node) { Node.new }
   let(:connector_without_nodes) { Connector.new }

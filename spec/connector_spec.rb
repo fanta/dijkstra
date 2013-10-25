@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Connector do
-  let(:connector) { Connector.new }
+  let(:connector) { Connector.new(distance: 5) }
   let(:node) { Node.new }
   let(:second_node) { Node.new }
   let(:third_node) { Node.new }
@@ -19,7 +19,7 @@ describe Connector do
   end
 
   describe 'complete_nodes?' do
-    it 'returns true if this connector has two nodes' do
+    it 'returns true if this connector has two nodes and the conector has a distance' do
       connector.connect_to_node(node)
       connector.connect_to_node(second_node)
       connector.complete_nodes?.should be_true
@@ -29,5 +29,10 @@ describe Connector do
       connector.connect_to_node(node)
       connector.complete_nodes?.should be_false
     end
+  end
+
+  it 'has a distance' do
+    new_connetor = Connector.new(distance: 5)
+    new_connetor.distance.should be(5)
   end
 end

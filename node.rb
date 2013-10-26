@@ -1,5 +1,5 @@
 class Node
-  attr_accessor :connectors, :visited, :initial, :target, :distance, :position
+  attr_accessor :connectors, :visited, :initial, :target, :distance, :position, :references
 
   def initialize(attrs = {})
     @connectors = []
@@ -8,6 +8,7 @@ class Node
     @target = attrs[:target] || false
     @distance = 0
     @position = attrs[:position]
+    @references = []
   end
 
   def add_to_connector(connector)
@@ -20,6 +21,10 @@ class Node
 
   def visited?
     visited
+  end
+
+  def short_path
+    references.sort_by {|r| r.distance}
   end
 
 end

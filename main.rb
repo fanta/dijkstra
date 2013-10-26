@@ -59,3 +59,4 @@ graph.add_connector(nineth_connector)
 
 graph.calculate
 p graph.connectors.collect { |c| c.nodes.collect {|n| "#{n.position} - #{n.distance}"} }
+p graph.nodes.collect {|n| p "#{n.position} ... #{n.short_path.compact.map(&:position)}"}

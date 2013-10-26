@@ -25,12 +25,12 @@ fourth_node = Node.new(position: 4)
 fourth_connector.connect_to_node(second_node)
 fourth_connector.connect_to_node(fourth_node)
 
-fifth_connector = Connector.new(distance: 11, target: true)
+fifth_connector = Connector.new(distance: 11)
 fifth_connector.connect_to_node(third_node)
 fifth_connector.connect_to_node(fourth_node)
 
 sixth_connector = Connector.new(distance: 6)
-fifth_node = Node.new(position: 5)
+fifth_node = Node.new(position: 5, target: true)
 sixth_connector.connect_to_node(fourth_node)
 sixth_connector.connect_to_node(fifth_node)
 
@@ -59,4 +59,6 @@ graph.add_connector(nineth_connector)
 
 graph.calculate
 p graph.connectors.collect { |c| c.nodes.collect {|n| "#{n.position} - #{n.distance}"} }
-p graph.nodes.collect {|n| p "#{n.position} ... #{n.short_path.compact.map(&:position)}"}
+p graph.nodes.collect {|n| p "#{n.position} ... #{n.path.compact.map(&:position)}"}
+
+p graph.shortest_path

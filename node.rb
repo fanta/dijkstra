@@ -23,7 +23,7 @@ class Node
     visited
   end
 
-  def short_path
+  def path
     references.sort_by {|r| r.distance}
   end
 
